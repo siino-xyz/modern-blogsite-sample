@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { sprinkles } from "../../sprinkles.css";
+import { sprinkles } from "../../styles/sprinkles.css";
 
 export const NewmoBoxStyle = style({
   width: "300px",
