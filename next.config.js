@@ -19,9 +19,9 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-module.exports = withMDX({
-  // Append the default value with md extensions
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-});
+// module.exports = withMDX({
+//   // Append the default value with md extensions
+//   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+// });
 
-module.exports = withVanillaExtract(nextConfig);
+module.exports = withVanillaExtract(withMDX(nextConfig));

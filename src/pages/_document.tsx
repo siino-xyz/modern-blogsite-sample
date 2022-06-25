@@ -1,11 +1,11 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { documentVars, documentStyle } from "./_document.css";
+import { baseStyles } from "./document.css";
 
 export default function Document() {
   return (
-    <Html lang="jp" className={`${documentStyle} ${documentVars}`}>
+    <Html lang="jp">
       <Head />
-      <body>
+      <body className={baseStyles}>
         <Main />
         <NextScript />
       </body>

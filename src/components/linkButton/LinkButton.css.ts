@@ -1,1 +1,1 @@
-import { sprinkles } from "src/styles/sprinkles.css";
+import { sprinkles } from "src/css-utils/sprinkles.css";

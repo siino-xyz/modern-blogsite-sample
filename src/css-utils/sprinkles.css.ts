@@ -13,7 +13,6 @@ const responsiveStyles = defineProperties({
   properties: {
     display: ["none", "flex", "block", "inline", "inlineBlock", "grid"],
     flexDirection: ["row", "column"],
-    gridTemplateColumns: vars.gridRepeat,
     justifyContent: [
       "stretch",
       "flex-start",
@@ -23,8 +22,6 @@ const responsiveStyles = defineProperties({
       "space-between",
     ],
     gap: vars.space,
-    textAlign: ["center", "left", "right"],
-    alignItems: ["stretch", "flex-start", "center", "flex-end"],
     paddingTop: vars.space,
     paddingBottom: vars.space,
     paddingLeft: vars.space,
@@ -35,8 +32,11 @@ const responsiveStyles = defineProperties({
     marginBottom: vars.space,
     fontFamily: vars.fontFamily,
     fontSize: vars.fontSize,
-    width: vars.width,
-    maxWidth: vars.maxWidth,
+    width: vars.sizes,
+    height: vars.sizes,
+    borderRadius: vars.borderRadius,
+    textAlign: ["center", "left", "right"],
+    alignItems: ["stretch", "flex-start", "center", "flex-end"],
     listStyleType: ["none", "circle", "inherit"],
     cursor: ["pointer", "none"],
     position: ["absolute", "relative", "inherit"],
@@ -54,13 +54,13 @@ const responsiveStyles = defineProperties({
 
 const colorStyles = defineProperties({
   conditions: {
-    // lightMode: { "@media": "(prefers-color-scheme: light)" },
+    lightMode: { "@media": "(prefers-color-scheme: light)" },
     darkMode: {},
   },
   defaultCondition: "darkMode",
   properties: {
     color: vars.color,
-    backgroundColor: vars.color,
+    background: vars.color,
   },
 });
 
