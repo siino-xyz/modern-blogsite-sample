@@ -9,5 +9,6 @@ export const baseStyles = style([
   {
     fontSize: "15px",
     maxWidth: "1920px",
+    overflowX: "hidden",
   },
 ]);
