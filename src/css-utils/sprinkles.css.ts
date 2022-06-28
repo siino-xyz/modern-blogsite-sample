@@ -20,6 +20,8 @@ const responsiveStyles = defineProperties({
       "flex-end",
       "space-around",
       "space-between",
+      "right",
+      "left",
     ],
     flexGrow: vars.nums,
     gap: vars.sizes,

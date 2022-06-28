@@ -1,11 +1,12 @@
-import fs from "fs";
+import fs, { Dirent } from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
+import { serialize } from "next-mdx-remote/serialize";
 
+//.mdxファイルを格納するディレクトリを取得
 const postsDirectory = path.join(process.cwd(), "posts");
 
+// 日付が新しい順で .mdxファイル（記事）を一括取得
 export const getStoredPostsData = () => {
   const fileNames = fs.readdirSync(postsDirectory);
 
@@ -21,6 +22,7 @@ export const getStoredPostsData = () => {
     };
   });
 
+  //日付のソーティング
   return allPostsData.sort((dateA, dateB) => {
     if (dateA < dateB) {
       return 1;
@@ -32,6 +34,7 @@ export const getStoredPostsData = () => {
   });
 };
 
+//getStaticPaths用に、記事のファイル名を取得・整形
 export const getAllPostIds = () => {
   const fileNames = fs.readdirSync(postsDirectory);
 
@@ -44,20 +47,20 @@ export const getAllPostIds = () => {
   });
 };
 
+/**
+ *
+ * @param id
+ * @returns
+ */
 export const getPostData = async (id) => {
   const fullPath = path.join(postsDirectory, `${id}.mdx`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
-
-  const matterResult = matter(fileContents);
-
-  const processdContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processdContent.toString();
+  const { data, content } = matter(fileContents);
+  const mdxSource = await serialize(content);
 
   return {
     id,
-    contentHtml,
-    ...matterResult.data,
+    source: mdxSource,
+    frontMatter: data,
   };
 };

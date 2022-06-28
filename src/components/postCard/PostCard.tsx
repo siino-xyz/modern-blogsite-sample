@@ -1,13 +1,20 @@
 import { sprinkles } from "src/css-utils/sprinkles.css";
 import Link from "next/link";
 import * as styles from "./PostCard.css";
-import PostsData from "types/postsData";
+import * as React from "react";
 
-const PostCard = ({ posts }: { posts: PostsData[] }) => {
+interface PostCardProps {
+  id: string;
+  date: string;
+  tag: string;
+  title: string;
+}
+
+const PostCard = ({ frontMatter }: { frontMatter: PostCardProps[] }) => {
   return (
     <div>
-      {posts.map((post) => (
-        <Link href={"/"} key={post.id}>
+      {frontMatter.map((post) => (
+        <Link href={`/${post.id}`} key={post.id}>
           <div className={styles.card}>
             <div>
               <p
@@ -17,6 +24,7 @@ const PostCard = ({ posts }: { posts: PostsData[] }) => {
               >
                 {post.date}
               </p>
+              <p>{post.tag}</p>
             </div>
             <h2
               className={sprinkles({

@@ -11,7 +11,7 @@ const withMDX = require("@next/mdx")({
     remarkPlugins: [],
     rehypePlugins: [],
     // If you use `MDXProvider`, uncomment the following line.
-    // providerImportSource: "@mdx-js/react",
+    providerImportSource: "@mdx-js/react",
   },
 });
 
@@ -19,9 +19,13 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-module.exports = withMDX({
-  // Append the default value with md extensions
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-});
+// module.exports = withMDX({
+//   // Append the default value with md extensions
+// });
 
-module.exports = withVanillaExtract(withMDX(nextConfig));
+module.exports = withVanillaExtract(
+  withMDX({
+    pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+    reactStrictMode: true,
+  })
+);

@@ -11,7 +11,7 @@ export default function Home({ allPostData }) {
     <Layout>
       <SectionTitle title="ブログ記事一覧" />
       <div>
-        <PostCard posts={allPostData} />
+        <PostCard frontMatter={allPostData} />
       </div>
     </Layout>
   );
