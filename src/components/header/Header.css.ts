@@ -49,15 +49,16 @@ export const header = style([
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
-    width: { mobile: "size-full", desktop: "size-4/5" },
+    width: { mobile: "size-full", desktop: "size-full" },
     marginX: "size-auto",
     paddingY: "size-3",
-    paddingX: "size-3",
+    // paddingX: "size-3",
     background: "translucentBlur",
     marginBottom: "size-16",
   }),
   {
     backdropFilter: `blur(5px)`,
+    zIndex: 130,
   },
 ]);
 

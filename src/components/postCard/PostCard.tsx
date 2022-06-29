@@ -14,7 +14,7 @@ const PostCard = ({ frontMatter }: { frontMatter: PostCardProps[] }) => {
   return (
     <div>
       {frontMatter.map((post) => (
-        <Link href={`/${post.id}`} key={post.id}>
+        <Link href={`/post/${post.id}`} key={post.id}>
           <div className={styles.card}>
             <div>
               <p

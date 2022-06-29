@@ -5,8 +5,9 @@ import { getAllPostIds, getPostData } from "utils/post";
 import { MDXRemote } from "next-mdx-remote";
 import Layout from "src/layouts/Layout";
 import Date from "src/components/date";
-import { MdxComponents } from "../components/mdx/MdxComponents";
-import { PostsProps } from "../../types/postTypes";
+import Tag from "src/components/tags/Tag";
+import { MdxComponents } from "../../components/mdx/MdxComponents";
+import { PostsProps } from "../../../types/postTypes";
 import { sprinkles } from "src/css-utils/sprinkles.css";
 
 const post: NextPage<PostsProps> = ({ source, frontMatter }) => {
@@ -15,35 +16,56 @@ const post: NextPage<PostsProps> = ({ source, frontMatter }) => {
       <Head>
         <title>{frontMatter.title}</title>
       </Head>
-      <header>
-        <Image
-          src={frontMatter.thumbnailUrl}
-          alt="thumbnail"
-          width={500}
-          height={300}
-          layout="intrinsic"
-        />
+      <header
+        className={sprinkles({
+          marginBottom: "size-12",
+          marginX: "size-auto",
+          width: { mobile: "size-0.9", desktop: "size-9/12" },
+        })}
+      >
+        <div
+          className={sprinkles({
+            marginX: "size-auto",
+            textAlign: "center",
+          })}
+        >
+          <Image
+            src={frontMatter.thumbnailUrl}
+            alt="thumbnail"
+            width={500}
+            height={300}
+            layout="intrinsic"
+            className={sprinkles({
+              borderRadius: "br-2",
+            })}
+          />
+        </div>
         <div
           className={sprinkles({
             display: "flex",
             flexDirection: "column",
-            background: "red-400",
+            marginY: "size-3",
           })}
         >
-          <h2>{frontMatter.title}</h2>
-          <div
+          <h1
             className={sprinkles({
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
+              fontSize: "3xl",
+              lineHeight: "3xl",
+              paddingBottom: "size-1",
             })}
           >
-            <Date dateString={frontMatter.date} />
-            <p>{frontMatter.tag}</p>
-          </div>
+            {frontMatter.title}
+          </h1>
+          <Date dateString={frontMatter.date} />
+          <Tag tags={frontMatter.tags} />
         </div>
       </header>
-      <main>
+      <main
+        className={sprinkles({
+          width: { mobile: "size-11/12", desktop: "size-8/12" },
+          marginX: "size-auto",
+        })}
+      >
         <MDXRemote {...source} components={MdxComponents} />
       </main>
     </Layout>

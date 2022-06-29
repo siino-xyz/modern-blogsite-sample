@@ -66,6 +66,7 @@ export const vars = createGlobalTheme(":root", {
     "size-9/12": "75%",
     "size-10/12": "83.333333%",
     "size-11/12": "91.666667%",
+    "size-0.9": "95%",
     "size-full": "100%",
     "w-size-screen": "100vw",
     "h-size-screen": "100vh",
