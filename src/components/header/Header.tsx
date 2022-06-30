@@ -1,9 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { sprinkles } from "src/css-utils/sprinkles.css";
-import { style } from "@vanilla-extract/css";
-
-import { snsButton, header, line } from "./Header.css";
+import { buttonShadow, snsButton, header } from "./Header.css";
+import DrawerButton from "../drawerButton/DrawerButton";
 
 const Header = () => {
   return (
@@ -18,25 +17,14 @@ const Header = () => {
         })}`}
       >
         <button
-          className={sprinkles({
-            background: "white",
+          className={`${sprinkles({
             width: { mobile: "size-12", desktop: "size-14" },
             height: { mobile: "size-12", desktop: "size-14" },
             borderRadius: "br-3",
-          })}
+          })} ${buttonShadow}`}
         ></button>
       </div>
-      {/* <div
-        className={sprinkles({
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          flexGrow: "1",
-          justifyContent: "flex-end",
-        })}
-      >
 
-      </div> */}
       <div
         className={sprinkles({
           width: { mobile: "size-12", desktop: "size-14" },
@@ -47,11 +35,11 @@ const Header = () => {
           justifyContent: "flex-end",
           alignItems: "center",
           flexDirection: "row",
-          gap: "size-3",
+          gap: "size-5",
         })}
       >
         <Link href={"/"}>
-          <button className={snsButton}>
+          <button className={`${snsButton} ${buttonShadow}`}>
             <Image
               src={"/images/twitterLogo.svg"}
               alt="twitterLogo"
@@ -61,19 +49,8 @@ const Header = () => {
             />
           </button>
         </Link>
-        <button
-          className={sprinkles({
-            background: "white",
-            width: { mobile: "size-12", desktop: "size-14" },
-            height: { mobile: "size-12", desktop: "size-14" },
-            borderRadius: "br-3",
-            position: "relative",
-          })}
-        >
-          <span className={line}></span>
-          <span className={line}></span>
-          <span className={line}></span>
-        </button>
+
+        <DrawerButton />
       </div>
     </div>
   );

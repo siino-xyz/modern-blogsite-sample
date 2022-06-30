@@ -17,8 +17,8 @@ import { vars } from "../vars.css";
 // export const boxShadow = recipe({
 //   variants: {
 //     shadow: {
-//       boxShadow: `10px 10px 10px`
-//     }
+//       boxShadow: `10px 10px 10px`,
+//     },
 //   },
 
 //   base: [

@@ -4,7 +4,7 @@ const SectionTitle = ({ title }: { title: string }) => {
   return (
     <div
       className={sprinkles({
-        width: { mobile: "size-full", desktop: "size-4/5" },
+        width: { mobile: "size-full", desktop: "size-full" },
         marginX: "size-auto",
       })}
     >

@@ -2,29 +2,27 @@ import { sprinkles } from "src/css-utils/sprinkles.css";
 import Link from "next/link";
 import * as styles from "./PostCard.css";
 import * as React from "react";
+import { frontMatterTypes } from "../../../types/postTypes";
+import Tag from "../tags/Tag";
 
-interface PostCardProps {
-  id: string;
-  date: string;
-  tag: string;
-  title: string;
-}
-
-const PostCard = ({ frontMatter }: { frontMatter: PostCardProps[] }) => {
+const PostCard = ({ frontMatter }: { frontMatter: frontMatterTypes[] }) => {
   return (
     <div>
       {frontMatter.map((post) => (
-        <Link href={`/post/${post.id}`} key={post.id}>
+        <Link href={`/blog/${post.id}`} key={post.id}>
           <div className={styles.card}>
-            <div>
+            <div
+              className={sprinkles({
+                marginBottom: "size-3",
+              })}
+            >
               <p
                 className={sprinkles({
-                  fontSize: "sm",
+                  fontSize: "xs",
                 })}
               >
                 {post.date}
               </p>
-              <p>{post.tag}</p>
             </div>
             <h2
               className={sprinkles({

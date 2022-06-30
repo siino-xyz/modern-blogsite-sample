@@ -5,7 +5,7 @@ export const layoutStyle = style([
   sprinkles({
     paddingX: "size-3",
     marginX: "size-auto",
-    width: { mobile: "size-full", desktop: "size-9/12" },
+    width: { mobile: "size-full", desktop: "size-8/12" },
   }),
   style({
     maxWidth: "1920px",

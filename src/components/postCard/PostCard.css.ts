@@ -21,7 +21,11 @@ export const card = style([
     padding: "size-5",
     borderRadius: "br-4",
     cursor: "pointer",
-    width: { mobile: "size-4/5", tablet: "size-11/12", desktop: "size-3/6" },
+    width: {
+      mobile: "size-11/12",
+      tablet: "size-11/12",
+      desktop: "size-11/12",
+    },
 
     transition: "easeing-1",
   }),

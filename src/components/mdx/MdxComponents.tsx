@@ -1,4 +1,5 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { a11yDark } from "react-syntax-highlighter/dist/cjs/styles/hljs/a11y-dark";
 
 import { sprinkles } from "src/css-utils/sprinkles.css";
 
@@ -18,7 +19,8 @@ export const MdxComponents = {
       className={sprinkles({
         fontSize: "3xl",
         lineHeight: "3xl",
-        marginBottom: "size-3",
+        marginBottom: "size-4",
+        marginTop: "size-12",
       })}
       {...props}
     />
@@ -28,6 +30,8 @@ export const MdxComponents = {
       className={sprinkles({
         fontSize: "2xl",
         lineHeight: "2xl",
+        marginBottom: "size-4",
+        marginTop: "size-12",
       })}
       {...props}
     />
@@ -37,6 +41,8 @@ export const MdxComponents = {
       className={sprinkles({
         fontSize: "xl",
         lineHeight: "xl",
+        marginBottom: "size-4",
+        marginTop: "size-12",
       })}
       {...props}
     />
@@ -53,5 +59,14 @@ export const MdxComponents = {
   ),
   a: (props) => <a {...props} />,
   li: (props) => <li {...props} />,
-  SyntaxHighlighter,
+  SyntaxHighlighter: (props) => (
+    <SyntaxHighlighter
+      language="javascript"
+      style={a11yDark}
+      {...props}
+      className={sprinkles({
+        borderRadius: "br-3",
+      })}
+    />
+  ),
 };

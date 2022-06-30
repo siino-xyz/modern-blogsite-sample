@@ -8,7 +8,7 @@ const Tag = ({ tags }: { tags: string[] }) => {
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-start",
-        gap: "size-4",
+        gap: "size-5",
         marginY: "size-4",
       })}
     >

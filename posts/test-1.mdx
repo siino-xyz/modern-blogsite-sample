@@ -1,5 +1,5 @@
 ---
-title: "Two Forms of Pre-rendering"
+title: "useEffectを理解したい"
 date: "2020-01-01"
 tags: ["JavaScript", "sdfsdf"]
 thumbnailUrl: '/images/issunn-thumb.png'
@@ -8,20 +8,22 @@ thumbnailUrl: '/images/issunn-thumb.png'
 import { monokaiSublime } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import CodeBlock from '../src/components/codeBlock/CodeBlock'
 
-## Hello world2
+## useEffectってなに
+CSSセレクタを切り替えるやり方のアニメーションをやりたいのだが、React上でどうやれば良いのか未だによく分からん。そもそもこの程度の実装にuseEffectって必要なのか？
 
-* aaa
-* bbb
-* ccc
+### useEffect情報
+- 画面が描写された後に実行されることが重要（らしい）
+- 画面が描写される前に処理を実行することはできない
 
-{/* <SyntaxHighlighter language="javascript"  >
+useStateで値の更新が行われるとコンポーネントはその値をブラウザ上でも更新する必要があるため再描写(コンポーネントの更新)が行われます。propsが更新された場合も同じようにコンポーネントの再描写が行われます。
+
+
+
+
+<SyntaxHighlighter>
   {`
-    const doStuff = () => {
-      return console.log('hey')
-    }
-  `}
-</SyntaxHighlighter> */}
-
-<div style={{ padding: '20px', color: 'red' }}>
-  <h3>This is JSX</h3>
-</div>
+  SyntaxHighlighter: (props) => (
+      <SyntaxHighlighter language="javascript" {...props} />
+    ),
+  `} 
+</SyntaxHighlighter>
